@@ -1,0 +1,27 @@
+<ion-grid fixed *ngIf="dispositivo === false">
+  <ion-row >
+    <ion-col *ngFor="let item of peliculas" size="12" size-lg="3" size-md="4" size-sm="6" size="12">
+<!--       
+      <ion-slides [options]="slideOpts">
+        <ion-slide >
+           -->
+          <ion-card>
+            <img (click)="Detalle( item.id )" class="poster" [src]="item.poster_path  | imagen">
+          </ion-card>
+<!--           
+        </ion-slide>
+      </ion-slides> -->
+
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+    <ion-slides [options]="slideOpts" *ngIf="dispositivo === true">
+        <ion-slide *ngFor="let item of peliculas">
+          
+          <ion-card mode="md">
+            <img (click)="Detalle( item.id )" class="poster" [src]="item.poster_path  | imagen">
+          </ion-card>
+          
+        </ion-slide>
+      </ion-slides>
